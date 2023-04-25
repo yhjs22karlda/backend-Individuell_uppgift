@@ -1,0 +1,312 @@
+openapi: 3.0.3
+info:
+  title: Swing Notes API
+  description: |-
+    Skapa ditt eget bibliotek av anteckningar. Lägg till, ta bort och ändra
+    så mycket du vill. Sign up and log in to get your token.
+  contact:
+    email: yhjs22.karlda@folkuniversitetet.nu
+  license:
+    name: ISC license
+    url: https://opensource.org/license/isc-license-txt/
+  version: 0.9.0
+servers:
+  - url: http://localhost:3000
+tags:
+  - name: notes
+    description: Everything about your notes
+  - name: user
+    description: Manage your account
+paths:
+  /api/notes:
+    get:
+      tags:
+        - notes
+      summary: Get all notes
+      description: Get notes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoteResponse'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Server error
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - notes
+      summary: Add a new note
+      description: Add a new note
+      requestBody:
+        description: Add a note
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostNote'
+        required: true
+      responses:
+        '200':
+          description: Note added successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NormalResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '500':
+          description: Server error
+      security:
+        - bearerAuth: []
+    put:
+      tags:
+        - notes
+      summary: Change a note
+      description: Change a note
+      requestBody:
+        description: Change a note
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeNote'
+        required: true
+      responses:
+        '200':
+          description: Note updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NormalResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '500':
+          description: Server error
+      security:
+        - bearerAuth: []
+  /api/notes/del/{id}:
+    delete:
+      tags:
+        - notes
+      summary: Delete a note
+      description: Delete a note by id
+      parameters:
+        - name: id
+          in: path
+          description: Note id to remove
+          required: true
+          schema:
+            properties:
+              id:
+                type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NormalResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '500':
+          description: Server error
+      security:
+        - bearerAuth: []
+  /api/notes/search:
+    get:
+      tags:
+        - notes
+      summary: Search notes
+      description: Search notes by title
+      parameters:
+        - name: searchstring
+          in: query
+          description: Sök efter in sträng i anteckningarnas titel
+          required: true
+          schema:
+            properties:
+              searchstring:
+                type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoteResponse'          
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '500':
+          description: Server error
+      security:
+        - bearerAuth: []
+  /api/user/signup:
+    post:
+      tags:
+        - user
+      summary: Signup
+      description: Make an account
+      requestBody:
+        description: Account details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+        required: true
+      responses:
+        '201':
+          description: User added to the database
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NormalResponse'          
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
+  /api/user/login:
+    post:
+      tags:
+        - user
+      summary: Login
+      description: Login to your account
+      requestBody:
+        description: Login info
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
+  /api/user/validatetoken:
+    get:
+      tags:
+        - user
+      summary: Validate user 
+      description: Check if a token is valid and if so return username
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidateResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '500':
+          description: Server error
+      security:
+        - bearerAuth: []
+components:
+  schemas:
+    PostNote:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 50
+        text:
+          type: string
+          maxLength: 300
+    ChangeNote:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+          example: New Note
+        text:
+          type: string
+          example: Some example text
+    Login:
+      properties:
+        username:
+          type: string
+          example: pelle
+        password:
+          type: string
+          format: password
+          example: password
+    NormalResponse:
+      properties:
+        success:
+          type: boolean
+        msg:
+          type: string
+    NoteResponse:
+      properties:
+        success:
+          type: boolean
+          example: true
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+    TokenResponse:
+      properties:
+        success:
+          type: boolean
+          example: true
+        token:
+          type: string
+        msg:
+          type: string
+    ValidateResponse:
+      properties:
+        success:
+          type: boolean
+          example: true
+        msg:
+          type: string
+          example: Token valid
+        username:
+          type: string
+          example: pelle
+    Note:
+      properties:
+        userId:
+          type: string
+        id:
+          type: string
+        title:
+          type: string
+        text:
+          type: string
+        createdAt:
+          type: string
+          format: date
+        modifiedAt:
+          type: string
+          format: date
+        _id:
+          type: string
+          example: secondary id
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
