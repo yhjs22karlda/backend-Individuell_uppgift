@@ -1,6 +1,6 @@
 {
   "name": "swing-notes-api",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "Save your notes here",
   "main": "index.js",
   "type": "module",

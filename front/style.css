@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    margin-top: .3rem;
+    margin-bottom: .3rem;
+    max-width: 400px;
+}
+.hide {
+    display: none;
+}
+button {
+    cursor: pointer;
+}
+body {
+    background-color: lightgray;
+}
+
+#all-notes >article {
+    border-top: 1px solid gray;
+}
+
+#all-notes > article input {
+    display: block;
+}
+
+#all-notes > article p:nth-child(3), 
+#all-notes > article p:nth-child(4) {
+    font-size: .3rem;
+}
+#all-notes > article p:nth-child(3)::before {
+    content: "Created at: ";
+}
+#all-notes > article p:nth-child(4)::before {
+    content: "Last modified at: ";
+}

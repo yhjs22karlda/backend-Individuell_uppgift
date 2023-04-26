@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swing Notes API</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
+</head>
+
+<body>
+
+    <h1>Swing Notes API</h1>
+    <a href="../api/docs">API docs</a><br>
+    <div>
+        <button id="signup-btn">Signup</button>
+        <button id="login-btn">Login</button>
+        <button class="hide" id="logout-btn">Logout</button>
+    </div>
+    <div class="hide" id="login-form">
+        <h3 id="form-header">Signup</h3>
+        <label>
+            Username:
+            <input id="username" type="text">
+        </label><br>
+        <label>
+            Password:
+            <input id="password" type="password">
+        </label><br>
+        <button id="send-btn">Send</button>
+        <p id="log-msg"></p>
+    </div>
+    <div class="hide" id="content">
+        <div>
+            <h4>Add Note</h4>
+            <h5>Title:</h5>
+            <input id="title" type="text"><br>
+            <h5>Text:</h5>
+            <textarea name="" id="text" cols="30" rows="5"></textarea><br>
+            <button id="add-note">Add Note</button>
+            <p id="add-msg"></p>
+            <hr>
+        </div>
+        <button id="get-notes">Get notes</button>
+        <span>Sök på titel: </span><input id="title-search" type="text">
+        <p id="notes-msg"></p>
+        <div id="all-notes">
+        </div>
+
+    </div>
+
+</body>
+</html>

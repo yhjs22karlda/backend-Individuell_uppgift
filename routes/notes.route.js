@@ -18,7 +18,7 @@ router.route("/")
     .post(validateInput, authJWT, async (req, res) => {
         try {
             await addNoteToDatabase(req.body.title, req.body.text, req.userId)
-            res.json({success: true, msg: "Post added."})
+            res.json({success: true, msg: "Note added."})
 
         } catch(err) {
             res.status(500).json({success: false, msg: err.toString() || "Unknown error."})
@@ -28,9 +28,8 @@ router.route("/")
         try {
             const note = await getOneNote(req.body.id, req.userId)
             if(!note) return res.json({success: false, msg: "No note found."})
-            console.log(note)
             await changeNote(note.id, req.body.title, req.body.text)
-            res.json({success: true, msg: "Post changed."})
+            res.json({success: true, msg: "Note changed."})
 
         } catch(err) {
             res.status(500).json({success: false, msg: err.toString() || "Unknown error."})
@@ -42,7 +41,7 @@ router.route("/del/:id")
         try {
             const notesRemoved = await deleteNoteId(req.params.id, req.userId)
             if(notesRemoved > 0) {
-                res.json({success: true, msg: "Post removed."})
+                res.json({success: true, msg: "Note removed."})
             } else {
                 res.json({success: false, msg: "Nothing removed."})
             }
@@ -56,7 +55,7 @@ router.route("/search")
     .get(validateInput, authJWT, async (req, res) => {
         try {
             const notes = await getAllUserNotes(req.userId)
-            const searchString = req.body.searchstring.trim().toLowerCase()
+            const searchString = req.query.searchstring.trim().toLowerCase()
             const fileredNotes = notes.filter(note => note.title.toLowerCase().includes(searchString))
             res.json({success: true, notes: fileredNotes})
         } catch(err) {

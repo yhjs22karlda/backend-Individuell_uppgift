@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 const notes = Datastore.create('databases/notes.db')
 
 export function getAllUserNotes(userId) {
-    return notes.find({userId}).sort({createdAt: 1})
+    return notes.find({userId}).sort({createdAt: -1})
 }
 
 export function getOneNote(noteId, userId) {

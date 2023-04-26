@@ -28,7 +28,6 @@ export async function validateInput(req, res, next) {
             inObject = req.body
             break
         case 'DELETE':
-            console.log('asdf')
             schema = deleteNoteSchema
             inObject = req.params
             break
@@ -37,7 +36,6 @@ export async function validateInput(req, res, next) {
             inObject = req.query
             break
         default:
-            console.log("Hit borde man inte komma.")
             throw new Error("Invalid path")
     }
 

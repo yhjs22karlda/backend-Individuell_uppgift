@@ -1,5 +1,15 @@
-{"userId":"1e397cf7-753b-4cdc-b050-8c2ab69508e5","id":"ac8cac13-0292-4b4b-a71a-e58a1e03ea94","title":"note2 title vdvsdfa","text":"note2 textsdf","createdAt":{"$$date":1682369369260},"modifiedAt":{"$$date":1682369369260},"_id":"5NAJO1mfml4GpKDz"}
-{"userId":"1e397cf7-753b-4cdc-b050-8c2ab69508e5","id":"2b18b6f8-a8ed-4f73-8dc1-0da06c0b270a","title":"note2 title vdvsdfa","text":"note2 textsdf","createdAt":{"$$date":1682369877357},"modifiedAt":{"$$date":1682369877357},"_id":"SULpyYhrDtQWyOTU"}
-{"userId":"1e397cf7-753b-4cdc-b050-8c2ab69508e5","id":"424ecf51-078f-49b9-8cad-a39cc4d899fe","title":"note2 title vdvsdfa","text":"note2 textsdf","createdAt":{"$$date":1682369768882},"modifiedAt":{"$$date":1682369768882},"_id":"cOY6ZxE0KwQ8vaJO"}
+{"userId":"9f6e7c52-4f8d-4029-844f-8bb59d71f4b8","id":"4ab03975-9502-48a9-be9e-c17af1478f49","title":"hej","text":"d","createdAt":{"$$date":1682461971408},"modifiedAt":{"$$date":1682500606282},"_id":"75m839m6mdLzFCt2"}
+{"userId":"9f6e7c52-4f8d-4029-844f-8bb59d71f4b8","id":"e95eb744-daaa-436d-b32f-27f897424fe6","title":"Köp smör","text":"10 kg direkt av bonden.","createdAt":{"$$date":1682495074872},"modifiedAt":{"$$date":1682501369122},"_id":"Skucdd8Vra8oyAwE"}
+{"userId":"0910a0c6-3fbb-4155-9269-81f4257c29b7","id":"c403738f-36d0-42f2-803f-bd2e9e410e5e","title":"hej","text":"apan är blå","createdAt":{"$$date":1682498720871},"modifiedAt":{"$$date":1682498720871},"_id":"bcxtISU1SlizOc2w"}
 {"userId":"1e397cf7-753b-4cdc-b050-8c2ab69508e5","id":"51fc6b89-d0e1-4a42-b945-a5797a775628","title":"Changed title","text":"Changed text","createdAt":{"$$date":1682353312004},"modifiedAt":{"$$date":1682365698694},"_id":"h0qx7IqcmasOeAvV"}
-{"userId":"1e397cf7-753b-4cdc-b050-8c2ab69508e5","id":"8b046b18-e875-4dd7-9ee7-ef26fbcc8bfa","title":"note2 title vdvsdfa","text":"note2 textsdf","createdAt":{"$$date":1682370440443},"modifiedAt":{"$$date":1682370440443},"_id":"kJS0UpRVcMiEMRxk"}
+{"userId":"9f6e7c52-4f8d-4029-844f-8bb59d71f4b8","id":"c08afd7c-c13e-4790-a5f3-204a4504d9e8","title":"df","text":"sdf","createdAt":{"$$date":1682501920983},"modifiedAt":{"$$date":1682501920983},"_id":"nMD6hLJRqE7SucAd"}
+{"userId":"1e397cf7-753b-4cdc-b050-8c2ab69508e5","id":"078d07ee-0ad2-4885-82b4-ced84834f50c","title":"apa","text":"mat","createdAt":{"$$date":1682460687315},"modifiedAt":{"$$date":1682460687315},"_id":"yMzDBbKJwWC8wtYj"}
+{"userId":"9f6e7c52-4f8d-4029-844f-8bb59d71f4b8","id":"d8796659-c746-4e42-be0b-f72e2359f146","title":"string","text":"string","createdAt":{"$$date":1682502409602},"modifiedAt":{"$$date":1682502409602},"_id":"KYWu1uZ2KipfkHLN"}
+{"userId":"9f6e7c52-4f8d-4029-844f-8bb59d71f4b8","id":"d8796659-c746-4e42-be0b-f72e2359f146","title":"New Note","text":"Some example text","createdAt":{"$$date":1682502409602},"modifiedAt":{"$$date":1682502464932},"_id":"KYWu1uZ2KipfkHLN"}
+{"$$deleted":true,"_id":"KYWu1uZ2KipfkHLN"}
+{"$$deleted":true,"_id":"nMD6hLJRqE7SucAd"}
+{"$$deleted":true,"_id":"75m839m6mdLzFCt2"}
+{"$$deleted":true,"_id":"h0qx7IqcmasOeAvV"}
+{"$$deleted":true,"_id":"yMzDBbKJwWC8wtYj"}
+{"userId":"1e397cf7-753b-4cdc-b050-8c2ab69508e5","id":"fe87e147-b89c-4088-abae-e9eb2bd22481","title":"Handla mat","text":"10 kg smör.\n1 bröd.","createdAt":{"$$date":1682505432427},"modifiedAt":{"$$date":1682505432427},"_id":"02LoLm4xktbKCfkh"}
+{"userId":"1e397cf7-753b-4cdc-b050-8c2ab69508e5","id":"b5d2fb15-70d9-49ad-9af8-ff9ed018aa9e","title":"Möte","text":"Banken kl 3.","createdAt":{"$$date":1682505462532},"modifiedAt":{"$$date":1682505462532},"_id":"S3mgOzAOnxspoweo"}
