@@ -19,7 +19,6 @@ router.route("/")
         try {
             await addNoteToDatabase(req.body.title, req.body.text, req.userId)
             res.json({success: true, msg: "Note added."})
-
         } catch(err) {
             res.status(500).json({success: false, msg: err.toString()})
         }
@@ -30,7 +29,6 @@ router.route("/")
             if(!note) return res.json({success: false, msg: "No note found."})
             await changeNote(note.id, req.body.title, req.body.text)
             res.json({success: true, msg: "Note changed."})
-
         } catch(err) {
             res.status(500).json({success: false, msg: err.toString()})
         }
@@ -45,7 +43,6 @@ router.route("/del/:id")
             } else {
                 res.json({success: false, msg: "Nothing removed."})
             }
-
         } catch(err) {
             res.status(500).json({success: false, msg: err.toString()})
         }

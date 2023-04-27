@@ -17,7 +17,7 @@ router.route("/signup")
                 res.status(201).json({success: true, msg: "User added."})
             }
         } catch(err) {
-            res.status(500).json({success: false, msg: err.toString() || "Unknown error."})
+            res.status(500).json({success: false, msg: err.toString()})
         }
     })
 
@@ -36,7 +36,7 @@ router.route("/login")
                 res.json({success:false, msg: "Wrong password!"})
             }
         } catch(err) {
-            res.status(500).json({success: false, msg: err.toString() || "Unknown error."})
+            res.status(500).json({success: false, msg: err.toString()})
         }
     })
 
@@ -50,6 +50,6 @@ router.route("/validatetoken")
                 res.json({success: false, msg: "User not found in the database."})
             }
         } catch(err) {
-            res.status(500).json({success: false, msg: err.toString() || "Unknown error."})
+            res.status(500).json({success: false, msg: err.toString()})
         }
     })
