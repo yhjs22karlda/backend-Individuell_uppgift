@@ -12,7 +12,7 @@ router.route("/")
             notes.map(note => note._id = undefined)
             res.json({success: true, notes})
         } catch(err) {
-            res.status(500).json({success: false, msg: err.toString() || "Unknown error."})
+            res.status(500).json({success: false, msg: err.toString()})
         }
     })
     .post(validateInput, authJWT, async (req, res) => {
@@ -21,7 +21,7 @@ router.route("/")
             res.json({success: true, msg: "Note added."})
 
         } catch(err) {
-            res.status(500).json({success: false, msg: err.toString() || "Unknown error."})
+            res.status(500).json({success: false, msg: err.toString()})
         }
     })
     .put(validateInput, authJWT, async (req, res) => {
@@ -32,7 +32,7 @@ router.route("/")
             res.json({success: true, msg: "Note changed."})
 
         } catch(err) {
-            res.status(500).json({success: false, msg: err.toString() || "Unknown error."})
+            res.status(500).json({success: false, msg: err.toString()})
         }
     })
 
@@ -47,7 +47,7 @@ router.route("/del/:id")
             }
 
         } catch(err) {
-            res.status(500).json({success: false, msg: err.toString() || "Unknown error."})
+            res.status(500).json({success: false, msg: err.toString()})
         }
     })
 
@@ -59,6 +59,6 @@ router.route("/search")
             const fileredNotes = notes.filter(note => note.title.toLowerCase().includes(searchString))
             res.json({success: true, notes: fileredNotes})
         } catch(err) {
-            res.status(500).json({success: false, msg: err.toString() || "Unknown error."})
+            res.status(500).json({success: false, msg: err.toString()})
         }
     })

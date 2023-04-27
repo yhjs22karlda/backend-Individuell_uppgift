@@ -47,7 +47,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PostNote'
+              properties:
+                title:
+                  type: string
+                  maxLength: 50
+                text:
+                  type: string
+                  maxLength: 300
         required: true
       responses:
         '200':
@@ -74,7 +80,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ChangeNote'
+              properties:
+                id:
+                  type: string
+                title:
+                  type: string
+                  example: New Note
+                text:
+                  type: string
+                  example: Some example text
         required: true
       responses:
         '200':
@@ -194,7 +208,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TokenResponse'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  token:
+                    type: string
+                  msg:
+                    type: string
         '400':
           description: Bad request
         '500':
@@ -211,7 +232,16 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ValidateResponse'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  msg:
+                    type: string
+                    example: Token valid
+                  username:
+                    type: string
+                    example: pelle
         '400':
           description: Bad request
         '401':
@@ -222,26 +252,6 @@ paths:
         - bearerAuth: []
 components:
   schemas:
-    PostNote:
-      type: object
-      properties:
-        title:
-          type: string
-          maxLength: 50
-        text:
-          type: string
-          maxLength: 300
-    ChangeNote:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-          example: New Note
-        text:
-          type: string
-          example: Some example text
     Login:
       properties:
         username:
@@ -266,26 +276,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Note'
-    TokenResponse:
-      properties:
-        success:
-          type: boolean
-          example: true
-        token:
-          type: string
-        msg:
-          type: string
-    ValidateResponse:
-      properties:
-        success:
-          type: boolean
-          example: true
-        msg:
-          type: string
-          example: Token valid
-        username:
-          type: string
-          example: pelle
     Note:
       properties:
         userId:
